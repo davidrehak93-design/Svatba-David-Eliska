@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliška & David | 5. 9. 2026</title>
+
+  <!-- Google fonty pro rustikální styl -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+      color: #2f3e2f;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                  url('les.jpg') center/cover no-repeat;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      margin: 0;
+      color: #2f5d3a;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2em;
+      color: #2f5d3a;
+      border-bottom: 2px solid #cfe3d4;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1em;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "🌿";
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #f3f8f4;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9em;
+      color: #4b6b55;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Eliška & David</h1>
+  <p>5. září 2026</p>
+  <p>Stará prádelna u hradu Veveří, Brno</p>
+</header>
+
+<section class="intro">
+  <p>
+    S radostí vás zveme na náš svatební den, který se uskuteční
+    v historickém objektu Staré prádelny, obklopeném lesem
+    pod hradem Veveří.
+  </p>
+</section>
+
+<section>
+  <h2>Fotografie</h2>
+  <div class="gallery">
+    <!-- Sem vlož vlastní fotky -->
+    <img src="foto1.jpg" alt="Eliška a David">
+    <img src="foto2.jpg" alt="Společné chvíle">
+    <img src="foto3.jpg" alt="Místo svatby">
+  </div>
+</section>
+
+<section>
+  <h2>Místo konání</h2>
+  <p>
+    Obřad i hostina se konají ve Staré prádelně u hradu Veveří –
+    historickém místě v srdci přírody, jen pár minut od Brna.
+  </p>
+
+  <div class="map">
+    <iframe
+      src="https://www.google.com/maps?q=Stará+prádelna+Veveří&output=embed"
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+<section>
+  <h2>Program dne</h2>
+  <p>
+    Časový harmonogram svatebního dne zde doplníme blíže k datu svatby.
+  </p>
+</section>
+
+<section>
+  <h2>Důležité informace</h2>
+  <ul>
+    <li>Doprava a parkování</li>
+    <li>Ubytování v okolí</li>
+    <li>Potvrzení účasti (RSVP)</li>
+    <li>Kontaktní informace</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Těšíme se na vás 🤍</p>
+</footer>
+
+</body>
+</html>
