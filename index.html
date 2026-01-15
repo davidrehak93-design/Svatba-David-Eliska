@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eliška & David | 5. 9. 2026</title>
 
-  <!-- Google fonty -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -56,17 +55,6 @@
       font-size: 1.1em;
     }
 
-    .location-image {
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .location-image img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
     .gallery {
       display: flex;
       flex-wrap: wrap;
@@ -77,8 +65,14 @@
     .gallery img {
       width: 100%;
       max-width: 260px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .location-image img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     .map iframe {
@@ -93,19 +87,14 @@
       padding: 0;
     }
 
-    ul li {
-      margin-bottom: 10px;
-    }
-
     ul li::before {
       content: "🌿";
       margin-right: 10px;
     }
 
-    /* FORM */
     form {
       max-width: 500px;
-      margin: 0 auto;
+      margin: auto;
       background: #f3f8f4;
       padding: 30px;
       border-radius: 12px;
@@ -117,15 +106,13 @@
       margin-bottom: 15px;
       border-radius: 8px;
       border: 1px solid #cfe3d4;
-      font-family: 'Montserrat', sans-serif;
     }
 
     button {
       background-color: #2f5d3a;
       color: white;
-      font-size: 1em;
-      cursor: pointer;
       border: none;
+      cursor: pointer;
     }
 
     button:hover {
@@ -140,15 +127,7 @@
     footer {
       background-color: #f3f8f4;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 0.9em;
-      color: #4b6b55;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2em;
-      }
+      padding: 30px;
     }
   </style>
 </head>
@@ -168,6 +147,17 @@
   </p>
 </section>
 
+<!-- ✅ SPOLEČNÉ FOTKY -->
+<section>
+  <h2>Společné fotografie</h2>
+  <div class="gallery">
+    <img src="images/foto1.jpg" alt="Eliška a David">
+    <img src="images/foto2.jpg" alt="Eliška a David">
+    <img src="images/foto3.jpg" alt="Eliška a David">
+    <img src="images/foto4.jpg" alt="Eliška a David">
+  </div>
+</section>
+
 <section>
   <h2>Místo konání</h2>
   <p>
@@ -175,7 +165,6 @@
     jedinečném historickém místě v srdci přírody.
   </p>
 
-  <!-- FOTKA MÍSTA HNED POD LOKACÍ -->
   <div class="location-image">
     <img src="images/misto.jpg" alt="Stará prádelna Veveří">
   </div>
@@ -201,20 +190,18 @@
 <section>
   <h2>Důležité informace</h2>
   <ul>
-    <li><strong>Parkování:</strong> možné přímo u budovy.</li>
-    <li><strong>Doprava:</strong> vlastním autem nebo MHD z Brna směrem na Veverskou Bítýšku.</li>
+    <li><strong>Parkování:</strong> přímo u budovy.</li>
+    <li><strong>Doprava:</strong> vlastním autem nebo MHD směr Veverská Bítýška.</li>
     <li><strong>Ubytování:</strong> Hotel Veveří – Nový Dvůr  
       (<a href="https://www.hotel-veveri.cz" target="_blank">www.hotel-veveri.cz</a>)
     </li>
-    <li><strong>Průběh:</strong> obřad i raut budou venku, při špatném počasí je zajištěna vnitřní varianta.</li>
-    <li><strong>Svatební dary:</strong> nejvíce potěší finanční příspěvek.</li>
+    <li><strong>Průběh:</strong> svatba venku, při nepřízni počasí vnitřní varianta.</li>
+    <li><strong>Dary:</strong> uvítáme finanční příspěvek.</li>
   </ul>
 </section>
 
 <section>
-  <h2>Potvrzení účasti (RSVP)</h2>
-
-  <!-- FORMULÁŘ – FUNKČNÍ PŘES FORMSPREE -->
+  <h2>Potvrzení účasti</h2>
   <form action="https://formspree.io/f/xpzvdgqy" method="POST">
     <input type="text" name="jmeno" placeholder="Jméno" required>
     <input type="text" name="prijmeni" placeholder="Příjmení" required>
@@ -225,14 +212,12 @@
       <option value="Ne">Bohužel se nezúčastním</option>
     </select>
 
-    <button type="submit">Odeslat odpověď</button>
+    <button type="submit">Odeslat</button>
   </form>
 
-  <!-- QR KÓD -->
   <div class="qr">
-    <p>📱 Sdílení webu přes QR kód</p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tvuj-username.github.io/svatba"
-         alt="QR kód svatby">
+    <p>📱 Sdílení webu</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tvuj-username.github.io/svatba">
   </div>
 </section>
 
