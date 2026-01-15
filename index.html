@@ -26,13 +26,8 @@
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
-      margin: 0;
       color: #2f5d3a;
-    }
-
-    header p {
-      font-size: 1.2em;
-      margin-top: 10px;
+      margin: 0;
     }
 
     section {
@@ -50,31 +45,42 @@
       margin-bottom: 30px;
     }
 
-    .intro {
-      text-align: center;
-      font-size: 1.1em;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .gallery img {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .location-image img {
-      max-width: 100%;
-      border-radius: 12px;
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 14px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
+    .slides {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slides img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .slider button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.8);
+      border: none;
+      font-size: 2em;
+      padding: 5px 15px;
+      cursor: pointer;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* ===== MAPA ===== */
     .map iframe {
       width: 100%;
       height: 450px;
@@ -90,38 +96,6 @@
     ul li::before {
       content: "🌿";
       margin-right: 10px;
-    }
-
-    form {
-      max-width: 500px;
-      margin: auto;
-      background: #f3f8f4;
-      padding: 30px;
-      border-radius: 12px;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #cfe3d4;
-    }
-
-    button {
-      background-color: #2f5d3a;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #244a2e;
-    }
-
-    .qr {
-      text-align: center;
-      margin-top: 40px;
     }
 
     footer {
@@ -140,21 +114,18 @@
   <p>Stará prádelna u hradu Veveří, Brno</p>
 </header>
 
-<section class="intro">
-  <p>
-    S radostí vás zveme na náš svatební den v historickém objektu
-    Staré prádelny, obklopeném lesem pod hradem Veveří.
-  </p>
-</section>
-
-<!-- ✅ SPOLEČNÉ FOTKY -->
 <section>
   <h2>Společné fotografie</h2>
-  <div class="gallery">
-    <img src="images/foto1.jpg" alt="Eliška a David">
-    <img src="images/foto2.jpg" alt="Eliška a David">
-    <img src="images/foto3.jpg" alt="Eliška a David">
-    <img src="images/foto4.jpg" alt="Eliška a David">
+
+  <div class="slider">
+    <div class="slides" id="slides">
+      <img src="images/foto1.jpg" alt="Eliška a David">
+      <img src="images/foto2.jpg" alt="Eliška a David">
+      <img src="images/foto3.jpg" alt="Eliška a David">
+      <img src="images/foto4.jpg" alt="Eliška a David">
+    </div>
+    <button class="prev" onclick="prevSlide()">‹</button>
+    <button class="next" onclick="nextSlide()">›</button>
   </div>
 </section>
 
@@ -162,12 +133,10 @@
   <h2>Místo konání</h2>
   <p>
     Obřad i hostina se konají ve Staré prádelně u hradu Veveří –
-    jedinečném historickém místě v srdci přírody.
+    historickém místě v srdci přírody.
   </p>
 
-  <div class="location-image">
-    <img src="images/misto.jpg" alt="Stará prádelna Veveří">
-  </div>
+  <img src="images/misto.jpg" style="width:100%;border-radius:12px;margin-bottom:30px;">
 
   <div class="map">
     <iframe
@@ -178,54 +147,40 @@
 </section>
 
 <section>
-  <h2>Program dne</h2>
-  <ul>
-    <li><strong>12:00</strong> – příjezd hostů</li>
-    <li><strong>13:00</strong> – svatební obřad</li>
-    <li><strong>14:00</strong> – společný oběd</li>
-    <li><strong>od 16:00</strong> – raut a volná zábava</li>
-  </ul>
-</section>
-
-<section>
   <h2>Důležité informace</h2>
   <ul>
-    <li><strong>Parkování:</strong> přímo u budovy.</li>
-    <li><strong>Doprava:</strong> vlastním autem nebo MHD směr Veverská Bítýška.</li>
+    <li><strong>Parkování:</strong> přímo u objektu</li>
     <li><strong>Ubytování:</strong> Hotel Veveří – Nový Dvůr  
       (<a href="https://www.hotelveveri.cz" target="_blank">www.hotelveveri.cz</a>)
     </li>
-    <li><strong>Průběh:</strong> svatba venku, při nepřízni počasí vnitřní varianta.</li>
-    <li><strong>Dary:</strong> uvítáme finanční příspěvek.</li>
+    <li><strong>Průběh:</strong> svatba venku, při nepřízni počasí vnitřní varianta</li>
   </ul>
-</section>
-
-<section>
-  <h2>Potvrzení účasti</h2>
-  <form action="https://formspree.io/f/xpzvdgqy" method="POST">
-    <input type="text" name="jmeno" placeholder="Jméno" required>
-    <input type="text" name="prijmeni" placeholder="Příjmení" required>
-
-    <select name="ucast" required>
-      <option value="">Zvolte účast</option>
-      <option value="Ano">Ano, dorazím</option>
-      <option value="Ne">Bohužel se nezúčastním</option>
-    </select>
-
-    <button type="submit">Odeslat</button>
-  </form>
-
-  <div class="qr">
-    <p>📱 Sdílení webu</p>
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://tvuj-username.github.io/svatba">
-  </div>
 </section>
 
 <footer>
   <p>Těšíme se na vás 🤍</p>
 </footer>
 
+<script>
+  let index = 0;
+  const slides = document.getElementById("slides");
+  const total = slides.children.length;
+
+  function updateSlide() {
+    slides.style.transform = `translateX(-${index * 100}%)`;
+  }
+
+  function nextSlide() {
+    index = (index + 1) % total;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    index = (index - 1 + total) % total;
+    updateSlide();
+  }
+</script>
+
 </body>
 </html>
-
 
