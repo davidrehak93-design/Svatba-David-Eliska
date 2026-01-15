@@ -16,7 +16,6 @@
       line-height: 1.7;
     }
 
-    /* ===== ROZŠÍŘENÉ POZADÍ PRÁDELNY ===== */
     header {
       min-height: 90vh;
       background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
@@ -60,7 +59,6 @@
       font-size: 1.15em;
     }
 
-    /* ===== SLIDER – 3 FOTKY VIDITELNÉ ===== */
     .slider {
       position: relative;
       max-width: 900px;
@@ -120,6 +118,35 @@
     ul li::before {
       content: "🌿";
       margin-right: 10px;
+    }
+
+    /* ===== RSVP FORM ===== */
+    .rsvp-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #cfe3d4;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1em;
+    }
+
+    .rsvp-form button {
+      background-color: #2f5d3a;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .rsvp-form button:hover {
+      background-color: #244b30;
     }
 
     footer {
@@ -208,6 +235,27 @@
     <li><strong>Ubytování:</strong> možné v <a href="https://www.hotelveveri.cz" target="_blank">Hotelu Veveří – Nový Dvůr</a>.</li>
     <li><strong>Svatební dary:</strong> největší radost nám udělá finanční příspěvek.</li>
   </ul>
+</section>
+
+<section>
+  <h2>Potvrzení účasti (RSVP)</h2>
+
+  <form class="rsvp-form"
+        action="mailto:davidrehak93@gmail.com"
+        method="post"
+        enctype="text/plain">
+
+    <input type="text" name="Jméno" placeholder="Jméno" required>
+    <input type="text" name="Příjmení" placeholder="Příjmení" required>
+
+    <select name="Účast" required>
+      <option value="">Zvolte účast</option>
+      <option value="Ano">Ano, přijdu</option>
+      <option value="Ne">Ne, nepřijdu</option>
+    </select>
+
+    <button type="submit">Odeslat potvrzení</button>
+  </form>
 </section>
 
 <footer>
