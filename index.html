@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eliška & David | 5. 9. 2026</title>
 
+  <!-- Google fonty -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -26,8 +27,13 @@
     header h1 {
       font-family: 'Playfair Display', serif;
       font-size: 3em;
-      color: #2f5d3a;
       margin: 0;
+      color: #2f5d3a;
+    }
+
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
     }
 
     section {
@@ -45,42 +51,50 @@
       margin-bottom: 30px;
     }
 
+    .intro {
+      text-align: center;
+      font-size: 1.1em;
+    }
+
     /* ===== SLIDER ===== */
     .slider {
       position: relative;
       max-width: 700px;
-      margin: auto;
+      margin: 0 auto;
       overflow: hidden;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .slides {
       display: flex;
-      transition: transform 0.6s ease-in-out;
+      transition: transform 0.5s ease-in-out;
     }
 
     .slides img {
       width: 100%;
       flex-shrink: 0;
-      object-fit: cover;
+      display: block;
     }
 
-    .slider button {
+    .slider-buttons {
       position: absolute;
       top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
       transform: translateY(-50%);
-      background: rgba(255,255,255,0.8);
-      border: none;
-      font-size: 2em;
-      padding: 5px 15px;
-      cursor: pointer;
     }
 
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .slider-buttons button {
+      background: rgba(255,255,255,0.8);
+      border: none;
+      font-size: 1.5em;
+      padding: 8px 14px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
 
-    /* ===== MAPA ===== */
     .map iframe {
       width: 100%;
       height: 450px;
@@ -93,6 +107,10 @@
       padding: 0;
     }
 
+    ul li {
+      margin-bottom: 10px;
+    }
+
     ul li::before {
       content: "🌿";
       margin-right: 10px;
@@ -101,11 +119,18 @@
     footer {
       background-color: #f3f8f4;
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
+      font-size: 0.9em;
+      color: #4b6b55;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2em;
+      }
     }
   </style>
 </head>
-
 <body>
 
 <header>
@@ -113,6 +138,14 @@
   <p>5. září 2026</p>
   <p>Stará prádelna u hradu Veveří, Brno</p>
 </header>
+
+<section class="intro">
+  <p>
+    S radostí vás zveme na náš svatební den, který se uskuteční
+    v historickém objektu Staré prádelny, obklopeném lesem
+    pod hradem Veveří.
+  </p>
+</section>
 
 <section>
   <h2>Společné fotografie</h2>
@@ -124,8 +157,11 @@
       <img src="images/foto3.jpg" alt="Eliška a David">
       <img src="images/foto4.jpg" alt="Eliška a David">
     </div>
-    <button class="prev" onclick="prevSlide()">‹</button>
-    <button class="next" onclick="nextSlide()">›</button>
+
+    <div class="slider-buttons">
+      <button onclick="prevSlide()">‹</button>
+      <button onclick="nextSlide()">›</button>
+    </div>
   </div>
 </section>
 
@@ -133,10 +169,8 @@
   <h2>Místo konání</h2>
   <p>
     Obřad i hostina se konají ve Staré prádelně u hradu Veveří –
-    historickém místě v srdci přírody.
+    historickém místě v srdci přírody, jen pár minut od Brna.
   </p>
-
-  <img src="images/misto.jpg" style="width:100%;border-radius:12px;margin-bottom:30px;">
 
   <div class="map">
     <iframe
@@ -147,13 +181,22 @@
 </section>
 
 <section>
+  <h2>Program dne</h2>
+  <ul>
+    <li><strong>12:00</strong> – příjezd hostů</li>
+    <li><strong>13:00</strong> – svatební obřad</li>
+    <li><strong>14:00</strong> – společný oběd</li>
+    <li><strong>od 16:00</strong> – raut a volná zábava</li>
+  </ul>
+</section>
+
+<section>
   <h2>Důležité informace</h2>
   <ul>
-    <li><strong>Parkování:</strong> přímo u objektu</li>
-    <li><strong>Ubytování:</strong> Hotel Veveří – Nový Dvůr  
-      (<a href="https://www.hotelveveri.cz" target="_blank">www.hotelveveri.cz</a>)
-    </li>
-    <li><strong>Průběh:</strong> svatba venku, při nepřízni počasí vnitřní varianta</li>
+    <li><strong>Parkování:</strong> parkování je možné přímo u budovy Staré prádelny.</li>
+    <li><strong>Doprava:</strong> doporučujeme vlastní automobil, případně MHD z Brna.</li>
+    <li><strong>Ubytování:</strong> možné v <a href="https://www.hotelveveri.cz" target="_blank">Hotelu Veveří – Nový Dvůr</a>.</li>
+    <li><strong>Svatební dary:</strong> největší radost nám udělá finanční příspěvek.</li>
   </ul>
 </section>
 
@@ -166,21 +209,20 @@
   const slides = document.getElementById("slides");
   const total = slides.children.length;
 
-  function updateSlide() {
-    slides.style.transform = `translateX(-${index * 100}%)`;
+  function showSlide(i) {
+    slides.style.transform = `translateX(-${i * 100}%)`;
   }
 
   function nextSlide() {
     index = (index + 1) % total;
-    updateSlide();
+    showSlide(index);
   }
 
   function prevSlide() {
     index = (index - 1 + total) % total;
-    updateSlide();
+    showSlide(index);
   }
 </script>
 
 </body>
 </html>
-
