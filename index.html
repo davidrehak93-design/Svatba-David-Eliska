@@ -59,10 +59,9 @@
       font-size: 1.15em;
     }
 
+    /* ===== SLIDER ===== */
     .slider {
       position: relative;
-      max-width: 900px;
-      margin: 0 auto;
       overflow: hidden;
     }
 
@@ -71,15 +70,13 @@
       transition: transform 0.5s ease-in-out;
     }
 
-.slides img {
-  width: 33.3333%;
-  height: auto;
-  object-fit: cover;
-  padding: 0 10px;
-  box-sizing: border-box;
-  border-radius: 12px;
-  display: block;
-}
+    .slides img {
+      width: 33.3333%;
+      padding: 0 10px;
+      box-sizing: border-box;
+      border-radius: 12px;
+      object-fit: cover;
+    }
 
     .slider-buttons {
       position: absolute;
@@ -99,6 +96,13 @@
       padding: 8px 14px;
       cursor: pointer;
       border-radius: 50%;
+    }
+
+    /* ===== MOBIL ===== */
+    @media (max-width: 800px) {
+      .slides img {
+        width: 100%;
+      }
     }
 
     .map iframe {
@@ -122,7 +126,25 @@
       margin-right: 10px;
     }
 
-    /* ===== RSVP FORM ===== */
+    /* ===== BAREVNÁ PALETA ===== */
+    .palette {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .palette div {
+      flex: 1;
+      height: 80px;
+      border-radius: 10px;
+    }
+
+    .eucalyptus { background: #7a9b8e; }
+    .sage { background: #a8b6a1; }
+    .olive { background: #6f7f6a; }
+    .linen { background: #f3f2ec; }
+
+    /* ===== RSVP ===== */
     .rsvp-form {
       max-width: 500px;
       margin: 0 auto;
@@ -147,22 +169,12 @@
       cursor: pointer;
     }
 
-    .rsvp-form button:hover {
-      background-color: #244b30;
-    }
-
     footer {
       background-color: #f3f8f4;
       text-align: center;
       padding: 30px 20px;
       font-size: 0.9em;
       color: #4b6b55;
-    }
-
-    @media (max-width: 800px) {
-      .slides img {
-        width: 100%;
-      }
     }
 
     @media (max-width: 600px) {
@@ -172,6 +184,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -191,10 +204,10 @@
 <section>
   <div class="slider">
     <div class="slides" id="slides">
-      <img src="images/foto1.jpg" alt="Eliška a David">
-      <img src="images/foto2.jpg" alt="Eliška a David">
-      <img src="images/foto3.jpg" alt="Eliška a David">
-      <img src="images/foto4.jpg" alt="Eliška a David">
+      <img src="images/foto1.jpg">
+      <img src="images/foto2.jpg">
+      <img src="images/foto3.jpg">
+      <img src="images/foto4.jpg">
     </div>
 
     <div class="slider-buttons">
@@ -206,56 +219,37 @@
 
 <section>
   <h2>Místo konání</h2>
-  <p>
-    Obřad i hostina se konají ve Staré prádelně u hradu Veveří –
-    historickém místě v srdci přírody, jen pár minut od Brna.
-  </p>
-
   <div class="map">
-    <iframe
-      src="https://www.google.com/maps?q=Stará+prádelna+Veveří&output=embed"
-      loading="lazy">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=Stará+prádelna+Veveří&output=embed" loading="lazy"></iframe>
   </div>
-</section>
-
-<section>
-  <h2>Program dne</h2>
-  <ul>
-    <li><strong>12:00</strong> – příjezd hostů</li>
-    <li><strong>13:00</strong> – svatební obřad</li>
-    <li><strong>14:00</strong> – společný oběd</li>
-    <li><strong>od 16:00</strong> – raut a volná zábava</li>
-  </ul>
 </section>
 
 <section>
   <h2>Důležité informace</h2>
   <ul>
-    <li><strong>Parkování:</strong> parkování je možné přímo u budovy Staré prádelny.</li>
-    <li><strong>Doprava:</strong> doporučujeme vlastní automobil, případně MHD z Brna.</li>
-    <li><strong>Ubytování:</strong> možné v <a href="https://www.hotelveveri.cz" target="_blank">Hotelu Veveří – Nový Dvůr</a>.</li>
-    <li><strong>Svatební dary:</strong> největší radost nám udělá finanční příspěvek.</li>
+    <li><strong>Parkování:</strong> parkování je možné přímo u budovy.</li>
+    <li><strong>Doprava:</strong> doporučujeme vlastní automobil.</li>
+    <li><strong>Svatební barvy:</strong></li>
   </ul>
+
+  <div class="palette">
+    <div class="eucalyptus"></div>
+    <div class="sage"></div>
+    <div class="olive"></div>
+    <div class="linen"></div>
+  </div>
 </section>
 
 <section>
   <h2>Potvrzení účasti (RSVP)</h2>
-
-  <form class="rsvp-form"
-        action="mailto:davidrehak93@gmail.com"
-        method="post"
-        enctype="text/plain">
-
+  <form class="rsvp-form" action="mailto:davidrehak93@gmail.com" method="post" enctype="text/plain">
     <input type="text" name="Jméno" placeholder="Jméno" required>
     <input type="text" name="Příjmení" placeholder="Příjmení" required>
-
     <select name="Účast" required>
       <option value="">Zvolte účast</option>
       <option value="Ano">Ano, přijdu</option>
       <option value="Ne">Ne, nepřijdu</option>
     </select>
-
     <button type="submit">Odeslat potvrzení</button>
   </form>
 </section>
@@ -269,8 +263,12 @@
   const slides = document.getElementById("slides");
   const total = slides.children.length;
 
+  function slideStep() {
+    return window.innerWidth <= 800 ? 100 : 100 / 3;
+  }
+
   function showSlide(i) {
-    slides.style.transform = `translateX(-${i * (100 / 3)}%)`;
+    slides.style.transform = `translateX(-${i * slideStep()}%)`;
   }
 
   function nextSlide() {
@@ -282,9 +280,16 @@
     index = (index - 1 + total) % total;
     showSlide(index);
   }
+
+  window.addEventListener("resize", () => showSlide(index));
 </script>
 
 </body>
 </html>
+
+
+</body>
+</html>
+
 
 
