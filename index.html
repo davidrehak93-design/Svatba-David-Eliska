@@ -60,6 +60,7 @@
       border-bottom: 2px solid #cfe3d4;
       padding-bottom: 10px;
       margin-bottom: 30px;
+      text-align: left; /* zarovnání vlevo */
     }
 
     .intro {
@@ -67,46 +68,20 @@
       font-size: 1.15em;
     }
 
-    .slider {
-      position: relative;
-      max-width: 900px;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .slides {
+    /* ===== GALERIE ===== */
+    .gallery {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
     }
 
-    .slides img {
-      width: 33.3333%;
-      height: 250px;
+    .gallery img {
+      width: calc(33.333% - 10px);
+      height: 200px;
       object-fit: cover;
-      padding: 0 5px;
-      box-sizing: border-box;
       border-radius: 12px;
       display: block;
-    }
-
-    .slider-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .slider-buttons button {
-      pointer-events: all;
-      background: rgba(255,255,255,0.85);
-      border: none;
-      font-size: 1.5em;
-      padding: 8px 14px;
-      cursor: pointer;
-      border-radius: 50%;
     }
 
     .map iframe {
@@ -131,20 +106,15 @@
     }
 
     /* ===== SVATEBNÍ BARVY ===== */
-    .color-palette-section {
-      margin-top: 50px;
-      text-align: center;
-    }
-
     .color-palette {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 12px;
       margin-top: 15px;
     }
 
     .color-palette div {
-      flex: 1;
+      width: 70px;
       height: 70px;
       border-radius: 10px;
     }
@@ -193,12 +163,15 @@
     }
 
     @media (max-width: 800px) {
-      .slides img {
-        width: 100%;
+      .gallery img {
+        width: calc(50% - 10px);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 500px) {
+      .gallery img {
+        width: 100%;
+      }
       header h1 {
         font-size: 2.5em;
       }
@@ -224,20 +197,13 @@
 </section>
 
 <section>
-  <div class="slider">
-    <div class="slides" id="slides">
-      <img src="images/foto1.jpg" alt="Eliška a David">
-      <img src="images/foto2.jpg" alt="Eliška a David">
-      <img src="images/foto3.jpg" alt="Eliška a David">
-      <img src="images/foto4.jpg" alt="Eliška a David">
-      <img src="images/foto5.jpg" alt="Eliška a David">
-      <img src="images/foto6.jpg" alt="Eliška a David">
-
-    </div>
-    <div class="slider-buttons">
-      <button onclick="prevSlide()">‹</button>
-      <button onclick="nextSlide()">›</button>
-    </div>
+  <div class="gallery">
+    <img src="images/foto1.jpg" alt="Eliška a David">
+    <img src="images/foto2.jpg" alt="Eliška a David">
+    <img src="images/foto3.jpg" alt="Eliška a David">
+    <img src="images/foto4.jpg" alt="Eliška a David">
+    <img src="images/foto5.jpg" alt="Eliška a David">
+    <img src="images/foto6.jpg" alt="Eliška a David">
   </div>
 </section>
 
@@ -276,9 +242,8 @@
   </ul>
 </section>
 
-<section class="color-palette-section">
+<section>
   <h2>Svatební barvy</h2>
-  <ul>
   <div class="color-palette">
     <div class="eucalyptus"></div>
     <div class="sage"></div>
@@ -325,31 +290,6 @@
 </footer>
 
 <script>
-  // ===== Slider =====
-  let index = 0;
-  const slides = document.getElementById("slides");
-  const total = slides.children.length;
-
-  function stepSize() {
-    return window.innerWidth <= 800 ? 100 : (100 / 3);
-  }
-
-  function showSlide(i) {
-    slides.style.transform = `translateX(-${i * stepSize()}%)`;
-  }
-
-  function nextSlide() {
-    index = (index + 1) % total;
-    showSlide(index);
-  }
-
-  function prevSlide() {
-    index = (index - 1 + total) % total;
-    showSlide(index);
-  }
-
-  window.addEventListener("resize", () => showSlide(index));
-
   // ===== RSVP =====
   function updateNames() {
     const container = document.getElementById("additional-names");
@@ -389,9 +329,14 @@
 
   const countdownInterval = setInterval(updateCountdown, 1000);
   updateCountdown();
+</script>
+
+</body>
+</html>
 
 </script>
 
 </body>
 </html>
+
 
