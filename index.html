@@ -59,6 +59,7 @@
       font-size: 1.15em;
     }
 
+    /* ===== SLIDER ===== */
     .slider {
       position: relative;
       max-width: 900px;
@@ -73,9 +74,9 @@
 
     .slides img {
       width: 33.3333%;
-      height: auto;
+      height: 250px;
       object-fit: cover;
-      padding: 0 10px;
+      padding: 0 5px;
       box-sizing: border-box;
       border-radius: 12px;
       display: block;
@@ -123,8 +124,14 @@
     }
 
     /* ===== SVATEBNÍ BARVY ===== */
+    .color-palette-section {
+      margin-top: 50px;
+      text-align: center;
+    }
+
     .color-palette {
       display: flex;
+      justify-content: center;
       gap: 12px;
       margin-top: 15px;
     }
@@ -260,8 +267,10 @@
     <li><strong>Ubytování:</strong> možné v <a href="https://www.hotelveveri.cz" target="_blank">Hotelu Veveří – Nový Dvůr</a>.</li>
     <li><strong>Svatební dary:</strong> největší radost nám udělá finanční příspěvek.</li>
   </ul>
+</section>
 
-  <p><strong>Svatební barvy:</strong></p>
+<section class="color-palette-section">
+  <h2>Svatební barvy</h2>
   <div class="color-palette">
     <div class="eucalyptus"></div>
     <div class="sage"></div>
@@ -280,6 +289,16 @@
 
     <input type="text" name="Jméno" placeholder="Jméno" required>
     <input type="text" name="Příjmení" placeholder="Příjmení" required>
+    
+    <label for="pocet">Počet osob (včetně vás):</label>
+    <select id="pocet" name="pocet" onchange="updateNames()" required>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+
+    <div id="additional-names"></div>
 
     <select name="Účast" required>
       <option value="">Zvolte účast</option>
@@ -296,6 +315,7 @@
 </footer>
 
 <script>
+  // Slider
   let index = 0;
   const slides = document.getElementById("slides");
   const total = slides.children.length;
@@ -319,7 +339,23 @@
   }
 
   window.addEventListener("resize", () => showSlide(index));
+
+  // RSVP - dynamická jména
+  function updateNames() {
+    const container = document.getElementById("additional-names");
+    const count = parseInt(document.getElementById("pocet").value);
+    container.innerHTML = '';
+    for (let i = 2; i <= count; i++) {
+      const input = document.createElement("input");
+      input.type = "text";
+      input.name = `Jméno_${i}`;
+      input.placeholder = `Jméno osoby ${i}`;
+      input.required = true;
+      container.appendChild(input);
+    }
+  }
 </script>
 
 </body>
 </html>
+
