@@ -39,13 +39,28 @@
       margin-top: 12px;
     }
 
+    /* ===== COUNTDOWN ===== */
     .countdown {
-      text-align: center;
-      font-size: 1.3em;
-      margin-top: 20px;
-      font-weight: bold;
-      color: #2f5d3a;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px auto;
+      font-size: 0.9em;
+      font-weight: 500;
     }
+
+    .countdown div {
+      padding: 12px 14px;
+      border-radius: 10px;
+      min-width: 70px;
+      text-align: center;
+      color: #2f3e2f;
+    }
+
+    .cd-days { background: #7a9b8e; }
+    .cd-hours { background: #a8b6a1; }
+    .cd-minutes { background: #d4c6a0; }
+    .cd-seconds { background: #f3f2ec; }
 
     section {
       max-width: 900px;
@@ -60,7 +75,7 @@
       border-bottom: 2px solid #cfe3d4;
       padding-bottom: 10px;
       margin-bottom: 30px;
-      text-align: left; /* zarovnání vlevo */
+      text-align: left;
     }
 
     .intro {
@@ -76,11 +91,11 @@
       justify-content: center;
     }
 
-.gallery img {
-  width: calc(33.333% - 10px);
-  height: auto;
-  object-fit: contain;
-}
+    .gallery img {
+      width: calc(33.333% - 10px);
+      height: auto;
+      object-fit: contain;
+    }
 
     .map iframe {
       width: 100%;
@@ -103,18 +118,20 @@
       margin-right: 10px;
     }
 
-    /* ===== SVATEBNÍ BARVY ===== */
+    /* ===== SVATEBNÍ BARVY – FULL WIDTH ===== */
+    .colors-wrapper {
+      width: 100%;
+      padding: 40px 0;
+    }
+
     .color-palette {
       display: flex;
-      justify-content: flex-start;
-      gap: 12px;
-      margin-top: 15px;
+      width: 100%;
     }
 
     .color-palette div {
-      width: 70px;
-      height: 70px;
-      border-radius: 10px;
+      flex: 1;
+      height: 120px;
     }
 
     .eucalyptus { background: #7a9b8e; }
@@ -126,6 +143,7 @@
     .rsvp-form {
       max-width: 500px;
       margin: 0 auto;
+      text-align: left;
     }
 
     .rsvp-form input,
@@ -139,6 +157,7 @@
       border: 1px solid #cfe3d4;
       font-family: 'Montserrat', sans-serif;
       font-size: 1em;
+      text-align: left;
     }
 
     .rsvp-form button {
@@ -173,6 +192,9 @@
       header h1 {
         font-size: 2.5em;
       }
+      .countdown {
+        flex-wrap: wrap;
+      }
     }
   </style>
 </head>
@@ -184,7 +206,12 @@
   <p>Stará prádelna u hradu Veveří, Brno</p>
 </header>
 
-<div class="countdown" id="countdown"></div>
+<div class="countdown" id="countdown">
+  <div class="cd-days"><span id="days"></span><br>dní</div>
+  <div class="cd-hours"><span id="hours"></span><br>hodin</div>
+  <div class="cd-minutes"><span id="minutes"></span><br>minut</div>
+  <div class="cd-seconds"><span id="seconds"></span><br>sekund</div>
+</div>
 
 <section class="intro">
   <p>
@@ -196,12 +223,12 @@
 
 <section>
   <div class="gallery">
-    <img src="images/foto1.jpg" alt="Eliška a David">
-    <img src="images/foto2.jpg" alt="Eliška a David">
-    <img src="images/foto3.jpg" alt="Eliška a David">
-    <img src="images/foto7.jpg" alt="Eliška a David">
-    <img src="images/foto8.jpg" alt="Eliška a David">
-    <img src="images/foto6.jpg" alt="Eliška a David">
+    <img src="images/foto1.jpg">
+    <img src="images/foto2.jpg">
+    <img src="images/foto3.jpg">
+    <img src="images/foto7.jpg">
+    <img src="images/foto8.jpg">
+    <img src="images/foto6.jpg">
   </div>
 </section>
 
@@ -213,42 +240,22 @@
   </p>
 
   <div class="map">
-    <iframe
-      src="https://www.google.com/maps?q=Stará+prádelna+Veveří&output=embed"
-      loading="lazy">
-    </iframe>
+    <iframe src="https://www.google.com/maps?q=Stará+prádelna+Veveří&output=embed"></iframe>
   </div>
 </section>
 
 <section>
-  <h2>Program dne</h2>
-  <ul>
-    <li><strong>12:00</strong> – příjezd hostů</li>
-    <li><strong>13:00</strong> – svatební obřad</li>
-    <li><strong>14:00</strong> – společný oběd</li>
-    <li><strong>od 16:00</strong> – raut a volná zábava</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Důležité informace</h2>
-  <ul>
-    <li><strong>Parkování:</strong> parkování je možné přímo u budovy Staré prádelny.</li>
-    <li><strong>Doprava:</strong> doporučujeme vlastní automobil, případně MHD z Brna.</li>
-    <li><strong>Ubytování:</strong> možné v <a href="https://www.hotelveveri.cz" target="_blank">Hotelu Veveří – Nový Dvůr</a>.</li>
-    <li><strong>Svatební dary:</strong> největší radost nám udělá finanční příspěvek.</li>
-  </ul>
-</section>
-
-<section>
   <h2>Svatební barvy</h2>
+</section>
+
+<div class="colors-wrapper">
   <div class="color-palette">
     <div class="eucalyptus"></div>
     <div class="sage"></div>
     <div class="sand"></div>
     <div class="cream"></div>
   </div>
-</section>
+</div>
 
 <section>
   <h2>Potvrzení účasti (RSVP)</h2>
@@ -261,7 +268,7 @@
     <input type="text" name="Jméno" placeholder="Jméno" required>
     <input type="text" name="Příjmení" placeholder="Příjmení" required>
 
-    <label for="pocet">Počet osob (včetně vás):</label>
+    <label>Počet osob (včetně vás):</label>
     <select id="pocet" name="pocet" onchange="updateNames()" required>
       <option value="1">1</option>
       <option value="2">2</option>
@@ -271,7 +278,7 @@
 
     <div id="additional-names"></div>
 
-    <input type="text" name="Alergie" placeholder="Alergie / speciální požadavky (vegan, vegetarian...)">
+    <input type="text" name="Alergie" placeholder="Alergie / speciální požadavky">
 
     <select name="Účast" required>
       <option value="">Zvolte účast</option>
@@ -288,7 +295,6 @@
 </footer>
 
 <script>
-  // ===== RSVP =====
   function updateNames() {
     const container = document.getElementById("additional-names");
     const count = parseInt(document.getElementById("pocet").value);
@@ -303,42 +309,18 @@
     }
   }
 
-  // ===== Countdown =====
-  const countdownElement = document.getElementById("countdown");
   const weddingDate = new Date("September 5, 2026 13:00:00").getTime();
 
-  function updateCountdown() {
+  setInterval(() => {
     const now = new Date().getTime();
-    const distance = weddingDate - now;
+    const diff = weddingDate - now;
 
-    if (distance < 0) {
-      countdownElement.innerHTML = "Svatba proběhla 🎉";
-      clearInterval(countdownInterval);
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000*60*60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000*60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownElement.innerHTML = `Do svatby zbývá: ${days} dní ${hours} hodin ${minutes} minut ${seconds} sekund`;
-  }
-
-  const countdownInterval = setInterval(updateCountdown, 1000);
-  updateCountdown();
+    document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+    document.getElementById("hours").innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    document.getElementById("minutes").innerText = Math.floor((diff / (1000 * 60)) % 60);
+    document.getElementById("seconds").innerText = Math.floor((diff / 1000) % 60);
+  }, 1000);
 </script>
 
 </body>
 </html>
-
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
